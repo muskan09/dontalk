@@ -2,13 +2,13 @@
   "name": "dontwhats",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://hsangalli@github.com/hsangalli/dontwhats.git"
+    "url": "git+https://github.com/hsangalli/dontwhats.git"
   },
   "author": "",
   "license": "ISC",
