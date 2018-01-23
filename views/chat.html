@@ -29,10 +29,9 @@
       </p>
     </div>
     <div>
-        <input type="text" autofocus v-model="newMessage.content" @keyup.enter="postMessage()">
-        <input type="text" v-model="newMessage.author" @keyup.enter="postMessage()">
-        <button type="button" @click="postMessage()">Enviar</button>
-        <button type="button" @click="getMessages()">Atualizar</button>
+      <input type="text" v-model="newMessage.author" @keyup.enter="postMessage()">:
+      <input type="text" autofocus placeholder="Write your message here" v-model="newMessage.content" @keyup.enter="postMessage()">
+      <button type="button" @click="postMessage()">Send</button>
     </div>
   </div>
   <script>
@@ -43,7 +42,7 @@
       messages: null,
       newMessage: {
         chat: null,
-        author: 'Visitante',
+        author: 'Guest',
         content: ''
       }
     },
@@ -52,8 +51,9 @@
         if (this.newMessage.content != '') {
           this.$http.post('/api/messages', { message: this.newMessage })
           .then(function () {
-            this.messages.push(Object.assign({}, this.newMessage))
-            this.newMessage.content = ''
+            this.messages.push(Object.assign({}, this.newMessage));
+            this.newMessage.content = '';
+            this.scrollThisShit();
           });
         }
       },
@@ -61,17 +61,20 @@
         setInterval(() => {
           this.$http.get(`/api/messages/${this.chat}`)
             .then(function (response) {
-              this.messages = response.body
-              const elem = document.getElementById('messages');
-              elem.scrollTop = elem.scrollHeight;
+              this.messages = response.body;
+              this.scrollThisShit();
             });
         }, 3000)
+      },
+      scrollThisShit: function () {
+        const elem = document.getElementById('messages');
+        elem.scrollTop = elem.scrollHeight;
       }
     },
     mounted: function () {
-      this.chat = window.location.pathname.replace('/', '')
-      this.newMessage.chat = this.chat
-      this.getMessages()
+      this.chat = window.location.pathname.replace('/', '');
+      this.newMessage.chat = this.chat;
+      this.getMessages();
     }
   });
   </script>
