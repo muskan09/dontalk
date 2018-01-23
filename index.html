@@ -10,6 +10,7 @@
 <body>
   <div id="app">
     <input type="text" autofocus v-model="newMessage.content" @keyup.enter="postMessage()">
+    <input type="text" v-model="newMessage.author" @keyup.enter="postMessage()">
     <button type="button" @click="postMessage()">Enviar</button>
     <button type="button" @click="getMessages()">Atualizar</button>
     <p v-for="message in messages">
@@ -30,17 +31,21 @@
     },
     methods: {
       postMessage: function () {
-        this.$http.post('/api/messages', { message: this.newMessage })
+        if (this.newMessage.content != '') {
+          this.$http.post('/api/messages', { message: this.newMessage })
           .then(function () {
             this.messages.push(Object.assign({}, this.newMessage))
             this.newMessage.content = ''
           });
+        }
       },
       getMessages: function () {
-        this.$http.get(`/api/messages/${this.chat}`)
-          .then(function (response) {
-            this.messages = response.body;
-          });
+        setInterval(() => {
+          this.$http.get(`/api/messages/${this.chat}`)
+            .then(function (response) {
+              this.messages = response.body
+            });
+        }, 3000)
       }
     },
     mounted: function () {
