@@ -24,7 +24,7 @@ app.get('/:chat', (req, res) => {
     }
   })
   
-  res.sendFile(__dirname + '/index.html')
+  res.sendFile(__dirname + '/views/chat.html')
 })
 
 app.listen(port, () => {
