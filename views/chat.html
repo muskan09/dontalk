@@ -23,7 +23,7 @@
 </head>
 <body>
   <div id="app">
-    <div class="messages">
+    <div id="messages" class="messages">
       <p v-for="message in messages">
         <b>{{ message.author }}:</b> {{ message.content }}
       </p>
@@ -62,6 +62,8 @@
           this.$http.get(`/api/messages/${this.chat}`)
             .then(function (response) {
               this.messages = response.body
+              const elem = document.getElementById('messages');
+              elem.scrollTop = elem.scrollHeight;
             });
         }, 3000)
       }
