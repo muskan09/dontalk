@@ -40,7 +40,7 @@
       </span>
     </div>
     <div id="interaction">
-      <input id="author" type="text" v-model="newMessage.author" @keyup.enter="postMessage()"> $
+      <input id="author" type="text" v-model="newMessage.author" @blur="saveUser()" @keyup.enter="postMessage()"> $
       <input type="text" autofocus placeholder="Type here" v-model="newMessage.content" @keyup.enter="postMessage()">
     </div>
   </div>
@@ -52,7 +52,7 @@
       messages: [],
       newMessage: {
         chat: '',
-        author: 'Anonymous',
+        author: '',
         content: ''
       },
       page: 1,
@@ -75,11 +75,15 @@
             this.messages = response.body.docs.slice().reverse();
             this.pages = response.body.pages;
           });
+      },
+      saveUser: function () {
+        localStorage.setItem('username', this.newMessage.author)
       }
     },
     mounted: function () {
       this.chat = window.location.pathname.replace('/', '');
       this.newMessage.chat = this.chat;
+      this.newMessage.author = localStorage.getItem('username') || 'Anonymous';
       this.getMessages();
       setInterval(() => {
         if (this.page === 1) this.getMessages();
