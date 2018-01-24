@@ -16,14 +16,11 @@ app.use(bodyParser.json())
 app.use('/api/messages', MessageController)
 app.use(express.static("public"));
 
-app.get('/:chat', (req, res) => {
-  Chat.findOne({ title: req.params['chat'] }, (err, chat) => {
-    if (err) {
-      res.send(err)    
-    } else if (!Boolean(chat)) {
-      Chat.create({ title: req.params['chat'] })
-    }
-  })
+app.get('/', (req, res) => {
+  res.send('Coming soon...')
+})
+
+app.get('/*', (req, res) => {
   res.sendFile(__dirname + '/public/chat.html')
 })
 
