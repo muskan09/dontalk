@@ -79,6 +79,9 @@
       this.chat = window.location.pathname.replace('/', '');
       this.newMessage.chat = this.chat;
       this.getMessages();
+      setInterval(() => {
+        this.getMessages();
+      }, 3000)
     }
   });
   </script>
