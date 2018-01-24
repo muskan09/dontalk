@@ -1,5 +1,5 @@
 {
-  "name": "dontwhats",
+  "name": "dontalk",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hsangalli/dontwhats.git"
+    "url": "git+https://github.com/hsangalli/dontalk.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hsangalli/dontwhats/issues"
+    "url": "https://github.com/hsangalli/dontalk/issues"
   },
-  "homepage": "https://github.com/hsangalli/dontwhats#readme",
+  "homepage": "https://github.com/hsangalli/dontalk#readme",
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.16.2",

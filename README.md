@@ -1,4 +1,4 @@
-# Don't Whats
+# Dontalk
 
 ### Contribution guide
 Prerequisites:

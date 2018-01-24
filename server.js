@@ -6,7 +6,7 @@ const Chat = require('./api/chats/model')
 const MessageController = require('./api/messages')
 
 const app = express()
-const mongoUri = process.env.MONGO_URI || 'mongodb://localhost/dontwhats'
+const mongoUri = process.env.MONGO_URI || 'mongodb://localhost/dontalk'
 const port = process.env.PORT || 1234
 
 mongoose.connect(mongoUri)
