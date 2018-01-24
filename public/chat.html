@@ -35,13 +35,14 @@
   new Vue({
     el: '#app',
     data: {
-      chat: null,
-      messages: null,
+      chat: '',
+      messages: [],
       newMessage: {
-        chat: null,
+        chat: '',
         author: 'Guest',
         content: ''
-      }
+      },
+      pages: 0
     },
     methods: {
       postMessage: function () {
@@ -57,7 +58,6 @@
         this.$http.get(`/api/messages/${this.chat}/${page}`)
           .then(function (response) {
             this.messages = response.body.docs.slice().reverse();
-            this.page = response.body.page;
             this.pages = response.body.pages;
           });
       }
