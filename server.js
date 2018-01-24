@@ -24,9 +24,7 @@ app.get('/:chat', (req, res) => {
       Chat.create({ title: req.params['chat'] })
     }
   })
-
-
-res.sendFile(__dirname + '/public/chat.html')
+  res.sendFile(__dirname + '/public/chat.html')
 })
 
 app.listen(port, () => {
