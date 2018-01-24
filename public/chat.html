@@ -55,6 +55,7 @@
         author: 'Anonymous',
         content: ''
       },
+      page: 1,
       pages: 0
     },
     methods: {
@@ -68,6 +69,7 @@
         }
       },
       getMessages: function (page = 1) {
+        this.page = page;
         this.$http.get(`/api/messages/${this.chat}/${page}`)
           .then(function (response) {
             this.messages = response.body.docs.slice().reverse();
@@ -80,7 +82,7 @@
       this.newMessage.chat = this.chat;
       this.getMessages();
       setInterval(() => {
-        this.getMessages();
+        if (this.page === 1) this.getMessages();
       }, 3000)
     }
   });
