@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:chat/:page', (req, res) => {
-  Message.paginate({}, {
+  Message.paginate({ chat: req.params['chat'] }, {
       limit: 25,
       page: req.params['page'],
       sort: { _id: -1 }
