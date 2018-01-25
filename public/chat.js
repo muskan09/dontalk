@@ -37,6 +37,11 @@ new Vue({
       window.location = this.chatToJoin;
     }
   },
+  filters: {
+    moment: function (date) {
+      return moment(date).format('HH:mm:ss');
+    }
+  }
   mounted: function () {
     this.chat = window.location.pathname.replace('/', '');
     this.newMessage.chat = this.chat;
