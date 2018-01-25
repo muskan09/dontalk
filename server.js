@@ -2,7 +2,6 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const express = require('express')
 const mongoose = require('mongoose')
-const Chat = require('./api/chats/model')
 const MessageController = require('./api/messages')
 
 const app = express()
