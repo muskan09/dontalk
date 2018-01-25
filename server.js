@@ -13,14 +13,10 @@ mongoose.connect(mongoUri)
 app.use(cors())
 app.use(bodyParser.json())
 app.use('/api/messages', MessageController)
-app.use(express.static("public"));
-
-app.get('/', (req, res) => {
-  res.send('Coming soon...')
-})
+app.use(express.static("public"))
 
 app.get('/*', (req, res) => {
-  res.sendFile(__dirname + '/public/chat.html')
+  res.sendFile(__dirname + '/public/index.html')
 })
 
 app.listen(port, () => {
