@@ -41,7 +41,7 @@ new Vue({
     moment: function (date) {
       return moment(date).format('HH:mm:ss');
     }
-  }
+  },
   mounted: function () {
     this.chat = window.location.pathname.replace('/', '');
     this.newMessage.chat = this.chat;
