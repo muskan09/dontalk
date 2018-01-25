@@ -13,7 +13,7 @@
     <template v-if="chat">
       <div id="messages">
         <p v-for="message in messages">
-          <b>{{ message.author }}:</b> {{ message.content }}
+          <b>{{ message.timestamp }} - {{ message.author }}:</b> {{ message.content }}
         </p>
       </div>
       <div id="pagination">
