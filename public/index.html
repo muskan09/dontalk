@@ -26,7 +26,8 @@
         <input class="author" type="text" v-model="newMessage.author" @blur="saveUser()" @keyup.enter="postMessage()"> $
         <input class="user-input" type="text" autofocus placeholder="Write a message and hit enter" v-model="newMessage.content" @keyup.enter="postMessage()">
       </div>
-      <audio ref="audioElm" src="https://notificationsounds.com/soundfiles/8b16ebc056e613024c057be590b542eb/file-sounds-1113-unconvinced.mp3"></audio>
+      <audio ref="audioReceive" src="https://notificationsounds.com/soundfiles/ed265bc903a5a097f61d3ec064d96d2e/file-sounds-1087-direct-quieter.mp3"></audio>
+      <audio ref="audioSend" src="https://notificationsounds.com/soundfiles/58ae749f25eded36f486bc85feb3f0ab/file-sounds-1094-intuition.mp3"></audio>
     </template>
     <template v-else>
       <div id="interaction">
