@@ -28,7 +28,7 @@ new Vue({
       }
     },
     getMessages: function (page = 1) {
-      if (this.messages && this.messages.length > 0) {
+      if (this.messages != undefined) {
         const lastMessageId = this.messages[this.messages.length-1]._id;
       }
       this.page = page;
