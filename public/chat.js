@@ -30,6 +30,7 @@ new Vue({
       }
     },
     getMessages: function (page = 1) {
+      if (page < 1 || (this.pages > 0 && page > this.pages)) return;
       this.page = page;
       this.$http.get(`/api/messages/${this.chat}/${page}`)
         .then(function (response) {

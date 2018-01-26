@@ -18,9 +18,11 @@
         </p>
       </div>
       <div id="pagination">
-        <span v-for="page in pages">
-          <a href="#" @click="getMessages(page)">{{ page }}</a> &nbsp;
-        </span>
+        [ Page {{ page }} ]
+        <a href="#" @click="getMessages(1)">First</a>
+        <a href="#" @click="getMessages(page-1)">Previous</a>
+        <a href="#" @click="getMessages(page+1)">Next</a>
+        <a href="#" @click="getMessages(pages)">Last</a>
       </div>
       <div id="interaction">
         <input class="author" type="text" v-model="newMessage.author" @blur="saveUser()" @keyup.enter="postMessage()"> $
