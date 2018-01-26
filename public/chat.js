@@ -15,9 +15,10 @@ new Vue({
   methods: {
     postMessage: function () {
       if (this.newMessage.content != '') {
-        this.$http.post('/api/messages', { message: this.newMessage })
+        let message = this.newMessage;
+        this.newMessage.content = '';
+        this.$http.post('/api/messages', { message: message })
         .then(function (response) {
-          this.newMessage.content = '';
           this.getMessages();
         });
       }
