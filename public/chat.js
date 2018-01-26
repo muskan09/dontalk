@@ -15,7 +15,11 @@ new Vue({
   methods: {
     postMessage: function () {
       if (this.newMessage.content != '') {
-        const message = this.newMessage;
+        const message = {
+          chat: this.newMessage.chat,
+          author: this.newMessage.author,
+          content: this.newMessage.content,
+        };
         this.newMessage.content = '';
         this.$http.post('/api/messages', { message: message })
         .then(function (response) {
