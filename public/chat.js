@@ -24,6 +24,7 @@ new Vue({
         this.newMessage.content = '';
         this.$http.post('/api/messages', { message: message })
         .then(function (response) {
+          this.playSoundSend();
           this.getMessages();
         });
       }
@@ -36,7 +37,7 @@ new Vue({
           this.pages = response.body.pages;
           var lastMessage = this.messages[this.messages.length-1];
           if (lastMessage && lastMessage._id != this.lastMessageId && lastMessage.author != this.newMessage.author) {
-            this.playSound();
+            this.playSoundReceive();
           }
           this.lastMessageId = lastMessage._id;
         });
@@ -47,8 +48,11 @@ new Vue({
     joinChat: function () {
       window.location = this.chatToJoin;
     },
-    playSound: function(event) {
-      this.$refs.audioElm.play();
+    playSoundReceive: function(event) {
+      this.$refs.audioReceive.play();
+    },
+    playSoundSend: function(event) {
+      this.$refs.audioSend.play();
     }
   },
   filters: {
