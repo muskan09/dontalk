@@ -22,3 +22,8 @@ npm run dev
 ``` 
 
 The application will run on [http://localhost:1234/](http://localhost:1234/)
+
+### Main contributors 
+[@faberjr](https://github.com/faberjr)  
+[@gabrielanhaia](https://github.com/gabrielanhaia)  
+[@hsangalli](https://github.com/hsangalli)  
