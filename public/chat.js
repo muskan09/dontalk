@@ -39,7 +39,7 @@ new Vue({
   },
   filters: {
     moment: function (date) {
-      return moment(date).format('HH:mm:ss');
+      return moment(date).format('HH:mm');
     }
   },
   mounted: function () {
