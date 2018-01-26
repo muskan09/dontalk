@@ -28,17 +28,17 @@ new Vue({
       }
     },
     getMessages: function (page = 1) {
-      if (this.messages != undefined) {
-        const lastMessageId = this.messages[this.messages.length-1]._id;
-      }
+      //if (this.messages != undefined) {
+        //const lastMessageId = this.messages[this.messages.length-1]._id;
+      //}
       this.page = page;
       this.$http.get(`/api/messages/${this.chat}/${page}`)
         .then(function (response) {
           this.messages = response.body.docs.slice().reverse();
           this.pages = response.body.pages;
-          if (this.messages[this.messages.length-1]._id != lastMessageId) {
-            this.playSound();
-          }
+          //if (this.messages[this.messages.length-1]._id != lastMessageId) {
+            //this.playSound();
+          //}
         });
     },
     saveUser: function () {
