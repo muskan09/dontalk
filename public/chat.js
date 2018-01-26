@@ -35,7 +35,7 @@ new Vue({
           this.messages = response.body.docs.slice().reverse();
           this.pages = response.body.pages;
           var lastMessage = this.messages[this.messages.length-1];
-          if (lastMessage && lastMessage._id != this.lastMessageId) {
+          if (lastMessage && lastMessage._id != this.lastMessageId && lastMessage.author != this.newMessage.author) {
             this.playSound();
           }
           this.lastMessageId = lastMessage._id;
