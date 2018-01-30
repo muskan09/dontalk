@@ -12,6 +12,7 @@ a {
 body {
   background: #060606;
   color: white;
+  overflow-x: hidden;
 }
 
 input {
@@ -27,6 +28,7 @@ button {
 
 #app {
   padding: 10px;
+  width: 100%;
 }
 
 #pagination {
